@@ -30,7 +30,7 @@
 	
 	{{-- Script --}}
 
-	<link rel="stylesheet" href="{{ mix('js/app.js') }}" rel="stylesheet">
+	<script src="{{ mix('js/app.js') }}"></script>
 
 </body>
 </html>
