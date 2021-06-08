@@ -9,10 +9,10 @@
 
 				<div class="card-body">
 					<h5><strong>个人简介</strong></h5>
-					<p>1111111111111111111.1111111111111111111</p>
+					<p>{{ $user->introduction }}</p>
 					<hr>
 					<h5><strong>注册于</strong></h5>
-					<p>Apirl 04 2021</p>
+					<p>{{ $user->created_at }}</p>
 				</div>
 			</div>
 		</div>
