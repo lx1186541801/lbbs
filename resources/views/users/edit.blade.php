@@ -17,7 +17,7 @@
 						@method('PUT')
 
 						@include('shared._errors')
-						
+
 						<div class="form-group">
 							<label for="name-field">用户名</label>
 							<input type="text" class="form-control" name="name" id="name-field" value="{{ old('name', $user->name) }}" />
@@ -34,6 +34,15 @@
 								{{ old('introduction', $user->introduction) }}
 							</textarea>
 						</div>
+
+						<div class="form-group mb-4">
+							<label for="" class="avatar-label">头像</label>
+							<input type="file" class="form-control-file" name="avatar">
+						</div>
+
+
+
+
 						<div class="well well-sm">
 							<button class="btn btn-primary" type="sublmit">保存</button>
 						</div>
