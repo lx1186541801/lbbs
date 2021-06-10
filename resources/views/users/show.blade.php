@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $user->name .'的个人中学')
+@section('title', $user->name .'的个人信息')
 
 @section('content')
 	<div class="row">

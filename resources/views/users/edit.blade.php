@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="card-body">
-					<form action="{{ route('users.update', $user->id) }}" method="post" accept-charset="utf-8">
+					<form action="{{ route('users.update', $user->id) }}" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 						@csrf
 						@method('PUT')
 
@@ -40,7 +40,10 @@
 							<input type="file" class="form-control-file" name="avatar">
 						</div>
 
-
+						@if ($user->avatar)
+							<br>
+							<img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="thumbnail img-responsive" width="200">
+						@endif
 
 
 						<div class="well well-sm">
