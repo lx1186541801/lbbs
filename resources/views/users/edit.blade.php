@@ -45,7 +45,7 @@
 							<img src="{{ $user->avatar }}" alt="{{ $user->name }}" class="thumbnail img-responsive" width="200">
 						@endif
 
-
+						<br>
 						<div class="well well-sm">
 							<button class="btn btn-primary" type="sublmit">保存</button>
 						</div>
