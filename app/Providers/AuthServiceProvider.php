@@ -23,8 +23,16 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // 授权策略注册
+        
         $this->registerPolicies();
 
-        //
+        // 修改策略发现逻辑
+        Gate::guessPolicyNamesUsing(function ($modelClass)
+        {
+            // 动态返回模型对应的策略名称
+            return 'App\Policies\\' . class_basename($modelClass) . 'Policy';
+        });
+
     }
 }
