@@ -21,12 +21,12 @@ class TopicsController extends Controller
 
     public function create()
     {
-    	return view('topics.createAndEdit');
+    	return view('topics.create_and_edit');
     }
 
 
     public function edit()
     {
-    	return view('topics.createAndEdit');
+    	return view('topics.create_and_edit');
     }
 }
