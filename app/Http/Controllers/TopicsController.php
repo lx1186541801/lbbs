@@ -11,7 +11,7 @@ class TopicsController extends Controller
     
     public function index(Topic $topic)
     {
-    	$topics = $topic->paginate(20);
+    	$topics = $topic->with('user', 'category')->paginate(20);
     	return view('topics.index', compact('topics'));
     }
     
