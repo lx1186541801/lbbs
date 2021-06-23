@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Topic;
 
 class TopicsController extends Controller
 {
     //
     
-    public function index()
+    public function index(Topic $topic)
     {
-    	return view('topics.index');
+    	$topics = $topic->paginate(20);
+    	return view('topics.index', compact('topics'));
     }
     
     public function show()
