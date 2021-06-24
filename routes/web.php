@@ -50,3 +50,4 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 
 
 Route::resource('topics', 'TopicsController');
+Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
