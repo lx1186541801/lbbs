@@ -13,8 +13,9 @@
 			<div class="card">
 				<div class="card-header bg-transparent">
 					<ul class="nav nav-pills">
-						<li class="nav-item"><a href="#" class="nav-link active">最后回复</a></li>
-						<li class="nav-item"><a href="#" class="nav-link">最新发布</a></li>
+						
+						<li class="nav-item"><a href="{{ Request::url() }}?order=default" class="nav-link @if (Request::input('order') != 'recent') active @endif ">最后回复</a></li>
+						<li class="nav-item"><a href="{{ Request::url() }}?order=recent" class="nav-link @if (Request::input('order') == 'recent') active @endif ">最新发布</a></li>
 					</ul>
 				</div>
 
