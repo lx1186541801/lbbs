@@ -4,6 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
+use App\Models\Topic;
+use App\observers\TopicObserver;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -25,5 +29,8 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         \Illuminate\Pagination\Paginator::useBootstrap();
+
+
+        Topic::observe(TopicObserver::class);
     }
 }

@@ -18,3 +18,8 @@ function route_class()
 }
 
 
+function make_excerpt($body, $length = 200)
+{
+	$excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($body)));
+	return Str::limit($excerpt, $length);
+}

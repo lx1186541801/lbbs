@@ -1,5 +1,7 @@
 <div class="card">
 	<div class="card-body">
-		右边侧边栏
+		<a href="{{ route('topics.create') }}" class="btn btn-success btn-block" aira-label="Left Align">
+			<i class="far fa-pencilalt mr-2"></i> Add New Topic
+		</a>
 	</div>
 </div>
