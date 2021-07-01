@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\Category;
 use App\Http\Requests\TopicRequest;
+use App\Handlers\ImageUploadHandler;
 use Auth;
 
 
@@ -55,5 +56,31 @@ class TopicsController extends Controller
     public function edit()
     {
     	return view('topics.create_and_edit');
+    }
+
+
+
+    public function uploadImage(Request $request, ImageUploadHandler $uploader)
+    {
+    	// 默认错误数据模版
+    	$data = [
+    		'success'	=>	false,
+    		'msg'		=>	'上传失败！',
+    		'file_path'	=>	''
+    	];
+
+    	// 判断是否有上传文件，并赋值给 $file
+    	if ($file = $request->upload_file) {
+    		// 保存文件
+    		$result = $uploader->save($file, 'topics', Auth::id() , 1024);
+
+    		if ($result) {
+    			$data['success'] = true;
+    			$data['msg'] = '上传成功！';
+    			$data['file_path'] = $result['path'];
+    		}
+    	}
+
+    	return $data;
     }
 }

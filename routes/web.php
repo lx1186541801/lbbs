@@ -49,5 +49,6 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 
 
-Route::resource('topics', 'TopicsController');
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+Route::resource('topics', 'TopicsController');
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
