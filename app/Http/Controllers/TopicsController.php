@@ -27,9 +27,9 @@ class TopicsController extends Controller
     	return view('topics.index', compact('topics'));
     }
     
-    public function show()
+    public function show(Topic $topic)
     {
-    	return view('topics.show');
+    	return view('topics.show', compact('topic'));
     }
 
 

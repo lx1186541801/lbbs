@@ -8,7 +8,7 @@
 	@csrf
 
 	<title>@yield('title', 'LBBS') - LBBS论坛</title>
-
+	<meta name="description" content="@yield('description', 'LBBS论坛')" />
 	{{-- CSS Style --}}
 
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}" rel="stylesheet">
