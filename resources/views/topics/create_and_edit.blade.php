@@ -21,12 +21,13 @@
 
 					@if ($topic->id)
 						<form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
+						@method('PUT')
 					@else
 						<form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
+						@method('POST')
 
 					@endif
 							@csrf
-							@method('POST')
 
 							@include('shared._errors')
 
@@ -38,7 +39,9 @@
 								<select name="category_id" class="form-control" required>
 									<option value="" hidden disabled selected>请选择分类</option>
 									@foreach($categories as $category)
-									    <option value="{{ $category->id }}">{{ $category->name }}</option>
+									    <option value="{{ $category->id }}" {{ $topic->category_id == $category->id ? 'selected' : '' }}>
+									    	{{ $category->name }}
+									    </option>
 									@endforeach
 								</select>
 							</div>
