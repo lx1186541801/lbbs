@@ -20,10 +20,10 @@
 					<hr>
 
 					@if ($topic->id)
-						<form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
+						<form action="{{ route('topics.update', $topic->id) }}" method="post" accept-charset="UTF-8">
 						@method('PUT')
 					@else
-						<form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
+						<form action="{{ route('topics.store') }}" method="post" accept-charset="UTF-8">
 						@method('POST')
 
 					@endif

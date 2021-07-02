@@ -71,6 +71,15 @@ class TopicsController extends Controller
     }
 
 
+    public function destroy(Topic $topic)
+    {
+    	$this->authorize('destroy', $topic);
+    	$topic->delete();
+
+    	return redirect()->route('topics.index')->with('success', '帖子删除成功！');
+    }
+
+
     public function uploadImage(Request $request, ImageUploadHandler $uploader)
     {
     	// 默认错误数据模版
