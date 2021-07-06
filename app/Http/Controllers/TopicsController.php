@@ -27,8 +27,11 @@ class TopicsController extends Controller
     	return view('topics.index', compact('topics'));
     }
     
-    public function show(Topic $topic)
+    public function show(Request $request, Topic $topic)
     {
+    	if ( ! empty($topic->slug) && $topic->slug != $request->slug) {
+    		return redirect($topic->link(), 301);
+    	}
     	return view('topics.show', compact('topic'));
     }
 
@@ -47,7 +50,7 @@ class TopicsController extends Controller
 
     	$topic->save();
 
-    	return redirect()->route('topics.show', $topic->id)->with('success', '帖子创建成功！');
+    	return redirect($topic->link())->with('success', '帖子创建成功！');
 
 
     }
@@ -66,7 +69,7 @@ class TopicsController extends Controller
     	$this->authorize('update', $topic);
     	$topic->update($request->all());
 
-    	return redirect()->route('topics.show', $topic->id)->with('success', '帖子修改成功！');
+    	return redirect($topic->link())->with('success', '帖子修改成功！');
 
     }
 
