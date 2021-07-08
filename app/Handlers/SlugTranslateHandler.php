@@ -52,7 +52,7 @@ class SlugTranslateHandler
 
 	public function pinyin($text)
 	{
-		return \Str::slug(app(Pinyin::class))->permalink($text);
+		return \Str::slug(app(Pinyin::class)->permalink($text));
 	}
 
 }

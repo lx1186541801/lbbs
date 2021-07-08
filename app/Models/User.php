@@ -53,6 +53,12 @@ class User extends Authenticatable implements MustVerifyEmailContract
     }
 
 
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+
+
     // 封装 验证是否当前用户与要操作的用户相同
     public function isAuthor($model)
     {
