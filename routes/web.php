@@ -51,7 +51,9 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 Route::resource('topics', 'TopicsController', ['except'	=> ['show']]);
+Route::resource('replies', 'RepliesController', ['only' => ['store', 'destory']]);
 
 Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show');
 
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+
