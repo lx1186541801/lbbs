@@ -12,7 +12,7 @@
 				{{ $notification->data['user_name'] }}
 			</a>
 			评论了
-			<a href="{{ route('topics.show', $notification->data['topic_link']) }}">
+			<a href="{{ $notification->data['topic_link'] }}">
 				{{ $notification->data['topic_title'] }}
 			</a>
 
