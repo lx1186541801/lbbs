@@ -1,5 +1,4 @@
 @include('shared._errors')
-{{ $errors }}
 <div class="reply-box">
 	<form action="{{ route('replies.store') }}" method="POST" accept-charset="UTF-8">
 		@csrf
