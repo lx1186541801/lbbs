@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Requests\ReplyRequest;
 use App\Models\Reply;
 use Auth;
 
@@ -17,7 +17,7 @@ class RepliesController extends Controller
 		$this->middleware('auth');
 	}
     //
-    public function store(Request $request, Reply $reply)
+    public function store(ReplyRequest $request, Reply $reply)
     {
     	
         $reply->content = $request->content;
