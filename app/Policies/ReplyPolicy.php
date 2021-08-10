@@ -11,8 +11,8 @@ class ReplyPolicy
     use HandlesAuthorization;
 
 
-    public function destory(User $user, Reply $reply)
+    public function destroy(User $user, Reply $reply)
     {
-        return $user->id === $reply->user_id;
+        return $user->isAuthor($reply) || $user->isAuthor($reply->topic);
     }
 }
