@@ -20,12 +20,19 @@
 						<span class="meta text-secondary" title="{{ $reply->created_at }}">
 							{{ $reply->created_at->diffForHumans() }}
 						</span>
-
-						<span class="meta float-right">
-							<a title="删除回复">
-								<i class="far fa-trash-alt"></i>
-							</a>
-						</span>
+						@can('destroy', $reply)
+							<span class="meta float-right">
+								<form action="{{ route('replies.destroy', $reply->id) }}" method="post" onsubmit="return confirm('确定删除？');">
+									@csrf
+									@method('delete')
+									<button type="submit" class="btn btn-default btn-xs pull-left text-secondary">
+										<i class="far fa-trash-alt"></i>
+									</button>
+								</form>
+								
+							</span> 
+						@endcan
+						
 					</div>
 
 					<div class="reply-content text-secondary">

@@ -29,9 +29,9 @@ class RepliesController extends Controller
     }
 
 
-    public function destory(Reply $reply)
+    public function destroy(Reply $reply)
     {
-    	$this->authorize('destory', $reply);
+    	$this->authorize('destroy', $reply);
     	$reply->delete();
 
 
